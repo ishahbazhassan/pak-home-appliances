@@ -1,0 +1,146 @@
+<% content_for :title, "PAK Home Appliances — Designed for Better Living" %>
+<% content_for :description, "Discover PAK Home Appliances designed to deliver reliable performance, modern technology and everyday comfort." %>
+
+<section class="pak-hero">
+  <div class="pak-wrap pak-hero-grid">
+    <div class="pak-reveal">
+      <p class="pak-kicker">PAK — Designed for Better Living</p>
+      <h1 class="pak-display">Powerful Performance.<br>Smarter Living.</h1>
+      <p class="pak-lede">Discover PAK Home Appliances designed to deliver reliable performance, modern technology and everyday comfort.</p>
+      <div class="pak-hero-actions">
+        <%= link_to "Explore Products", shop_path, class: "pak-btn pak-btn-primary" %>
+        <%= link_to "Discover PAK", about_path, class: "pak-btn pak-btn-light" %>
+      </div>
+    </div>
+    <div class="pak-hero-visual" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap">
+    <div class="pak-section-head">
+      <div>
+        <p class="pak-kicker">Explore PAK Home Appliances</p>
+        <h2>Four families. One standard of comfort.</h2>
+      </div>
+      <%= link_to "View all products", shop_path, class: "pak-btn pak-btn-ghost" %>
+    </div>
+    <div class="pak-cat-grid">
+      <% @categories.each do |category| %>
+        <%= link_to shop_category_path(category.slug), class: "pak-cat-card" do %>
+          <i class="<%= category_icon(category.icon) %>"></i>
+          <h3><%= category.name.upcase %></h3>
+          <p><%= category.tagline %></p>
+          <em>Shop now</em>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="pak-section pak-mist">
+  <div class="pak-wrap">
+    <div class="pak-section-head">
+      <div>
+        <p class="pak-kicker">Featured Products</p>
+        <h2>Made to be lived with.</h2>
+      </div>
+    </div>
+    <div class="pak-product-grid">
+      <% @featured.each do |product| %>
+        <%= render "shared/product_card", product: product %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="pak-section pak-navy-band">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Innovation</p>
+    <h2>Technology That Works For You</h2>
+    <div class="pak-feature-grid" style="margin-top: 36px;">
+      <article class="pak-feature">
+        <div class="pak-feature-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Energy Efficient</h3>
+        <p>Designed to reduce energy consumption.</p>
+      </article>
+      <article class="pak-feature">
+        <div class="pak-feature-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Powerful Performance</h3>
+        <p>Engineered for reliable everyday use.</p>
+      </article>
+      <article class="pak-feature">
+        <div class="pak-feature-icon"><i class="fas fa-microchip"></i></div>
+        <h3>Smart Technology</h3>
+        <p>Modern features designed around consumer needs.</p>
+      </article>
+      <article class="pak-feature">
+        <div class="pak-feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Built to Last</h3>
+        <p>Durable materials and dependable construction.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap pak-story">
+    <div>
+      <p class="pak-kicker">Made for Pakistan</p>
+      <h2>Hot summers. Long working days. Busy households.</h2>
+      <p class="pak-lede">PAK is designed around real Pakistani living — from Gujrat manufacturing to homes across the country.</p>
+    </div>
+    <div class="pak-story-panel">
+      <p>Cooler rooms.<br>Cleaner laundry.<br>Hot water when you need it.<br>Comfort that keeps up with the day.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pak-section pak-mist">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Why PAK</p>
+    <h2>Built on Trust. Designed for Tomorrow.</h2>
+    <p class="pak-lede">Heritage manufacturing, nationwide presence, and a standard of quality control that families can rely on.</p>
+    <div class="pak-stat-grid">
+      <div class="pak-stat">
+        <strong data-counter="40" data-suffix="+">0+</strong>
+        Years of industry experience
+      </div>
+      <div class="pak-stat">
+        <strong>4</strong>
+        Appliance families
+      </div>
+      <div class="pak-stat">
+        <strong>Nationwide</strong>
+        Service network
+      </div>
+      <div class="pak-stat">
+        <strong>Gujrat</strong>
+        Manufacturing home
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap pak-dealer">
+    <div>
+      <p class="pak-kicker">Dealers</p>
+      <h2>Become a partner of Pakistan’s leading home appliances brand.</h2>
+      <p class="pak-lede">Join a nationwide sales network backed by manufacturing heritage and after-sales support.</p>
+    </div>
+    <%= link_to "Sign up for dealership", dealers_path, class: "pak-btn pak-btn-primary" %>
+  </div>
+</section>
+
+<section class="pak-section pak-mist">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Campaigns</p>
+    <h2>Latest from PAK</h2>
+    <p class="pak-lede">Seasonal launches, dealer stories and product films. Follow official channels for new campaigns.</p>
+    <div class="pak-hero-actions">
+      <%= link_to "Media resources", media_path, class: "pak-btn pak-btn-ghost" %>
+      <%= link_to "pakfansofficial.com", "https://www.pakfansofficial.com/", class: "pak-btn pak-btn-primary" %>
+    </div>
+  </div>
+</section>

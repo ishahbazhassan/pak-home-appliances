@@ -1,0 +1,80 @@
+<% content_for :title, "#{@product.name} | PAK Home Appliances" %>
+
+<section class="pak-page-hero">
+  <div class="pak-wrap pak-product-hero">
+    <div class="pak-gallery">
+      <div class="pak-gallery-main">
+        <%= image_tag "/img/pak-logo.png", alt: @product.name %>
+      </div>
+    </div>
+    <div>
+      <div class="pak-crumbs">
+        <%= link_to "Home", root_path %>
+        <span>/</span>
+        <%= link_to Catalog.category(@product.category).name, shop_category_path(@product.category) %>
+      </div>
+      <p class="pak-kicker"><%= Catalog.category(@product.category).name %></p>
+      <h1 class="pak-display" style="font-size: clamp(36px, 5vw, 56px);"><%= @product.name %></h1>
+      <p class="pak-lede"><%= @product.tagline %></p>
+      <p class="pak-price" style="font-size: 28px;"><%= pak_price(@product.price) %></p>
+      <p class="pak-muted"><%= @product.availability %> · <%= @product.spec %></p>
+      <div class="pak-hero-actions">
+        <%= link_to "Buy Now", checkout_path, class: "pak-btn pak-btn-primary" %>
+        <%= link_to "Add to Cart", cart_path, class: "pak-btn pak-btn-ghost" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Key Features</p>
+    <h2>Designed around daily use.</h2>
+    <div class="pak-feature-grid" style="margin-top: 28px;">
+      <% @product.features.each do |feature| %>
+        <article class="pak-feature" style="background: var(--pak-mist); border-color: var(--pak-line);">
+          <div class="pak-feature-icon"><i class="fas fa-check"></i></div>
+          <h3 style="font-size: 18px;"><%= feature %></h3>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="pak-section pak-mist">
+  <div class="pak-wrap pak-story">
+    <div>
+      <p class="pak-kicker">Benefits</p>
+      <h2>More than a specification sheet.</h2>
+      <% @product.benefits.each do |benefit| %>
+        <p class="pak-lede"><%= benefit %></p>
+      <% end %>
+    </div>
+    <div>
+      <p class="pak-kicker">Specifications</p>
+      <table class="pak-spec-table">
+        <% @product.specs.each do |label, value| %>
+          <tr>
+            <th><%= label %></th>
+            <td><%= value %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</section>
+
+<% if @related.any? %>
+  <section class="pak-section">
+    <div class="pak-wrap">
+      <div class="pak-section-head">
+        <h2>Related products</h2>
+      </div>
+      <div class="pak-product-grid">
+        <% @related.each do |product| %>
+          <%= render "shared/product_card", product: product %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+<% end %>

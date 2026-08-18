@@ -1,0 +1,28 @@
+<% content_for :title, "Contact | PAK Home Appliances" %>
+
+<section class="pak-page-hero">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Contact</p>
+    <h1 class="pak-display" style="font-size: clamp(36px, 5vw, 56px);">Talk to PAK.</h1>
+    <p class="pak-lede">G.T. Road, Gujrat — Pakistan<br>Phones: +92-53 3726091 to 94</p>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap pak-story">
+    <div>
+      <% if flash[:notice] %><p class="pak-lede"><%= flash[:notice] %></p><% end %>
+      <%= form_with url: contact_path, method: :post, local: true, class: "pak-form" do %>
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="How can we help?"></textarea>
+        <button class="pak-btn pak-btn-primary" type="submit">Send message</button>
+      <% end %>
+    </div>
+    <div class="pak-feature" style="background: var(--pak-mist); border-color: var(--pak-line);">
+      <h3>Head office</h3>
+      <p class="pak-muted">Wahid Industries Limited<br>G.T. Road, Gujrat — Pakistan</p>
+      <p class="pak-muted">www.pakfansofficial.com</p>
+    </div>
+  </div>
+</section>

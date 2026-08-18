@@ -1,0 +1,16 @@
+<%= link_to product_path(product.slug), class: "pak-product-card" do %>
+  <div class="pak-product-media">
+    <%= image_tag "/img/pak-logo.png", alt: product.name %>
+  </div>
+  <div class="pak-product-body">
+    <p class="pak-kicker"><%= Catalog.category(product.category)&.name %></p>
+    <h3><%= product.name %></h3>
+    <p class="pak-muted"><%= product.tagline %></p>
+    <p class="pak-price"><%= pak_price(product.price) %></p>
+    <p class="pak-muted"><%= product.spec %></p>
+    <div class="pak-card-actions">
+      <span class="pak-btn pak-btn-ghost">View Product</span>
+      <span class="pak-btn pak-btn-primary">Buy Now</span>
+    </div>
+  </div>
+<% end %>

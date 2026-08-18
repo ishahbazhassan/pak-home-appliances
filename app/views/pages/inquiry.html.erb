@@ -1,0 +1,26 @@
+<% content_for :title, "Product Inquiry | PAK Home Appliances" %>
+
+<section class="pak-page-hero">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Support</p>
+    <h1 class="pak-display" style="font-size: clamp(36px, 5vw, 56px);">Product inquiry</h1>
+    <p class="pak-lede">Tell us which appliance you are looking for and our team will respond.</p>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap">
+    <% if flash[:notice] %><p class="pak-lede"><%= flash[:notice] %></p><% end %>
+    <%= form_with url: inquiry_path, method: :post, local: true, class: "pak-form" do %>
+      <input type="text" name="name" placeholder="Full name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <select name="category">
+        <% Catalog.categories.each do |category| %>
+          <option value="<%= category.slug %>"><%= category.name %></option>
+        <% end %>
+      </select>
+      <textarea name="message" placeholder="Your question"></textarea>
+      <button class="pak-btn pak-btn-primary" type="submit">Send inquiry</button>
+    <% end %>
+  </div>
+</section>

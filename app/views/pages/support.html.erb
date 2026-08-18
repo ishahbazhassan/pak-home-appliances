@@ -1,0 +1,30 @@
+<% content_for :title, "Support | PAK Home Appliances" %>
+
+<section class="pak-page-hero">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Support</p>
+    <h1 class="pak-display" style="font-size: clamp(36px, 5vw, 56px);">Help when you need it.</h1>
+    <p class="pak-lede">Product questions, complaints, dealership and after-sales support — all in one place.</p>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap pak-feature-grid">
+    <%= link_to inquiry_path, class: "pak-feature", style: "background: var(--pak-mist); border-color: var(--pak-line);" do %>
+      <h3>Product Inquiry</h3>
+      <p class="pak-muted">Ask about a model, specification or availability.</p>
+    <% end %>
+    <%= link_to complaint_path, class: "pak-feature", style: "background: var(--pak-mist); border-color: var(--pak-line);" do %>
+      <h3>Complaint</h3>
+      <p class="pak-muted">Tell us about a product or service issue.</p>
+    <% end %>
+    <%= link_to dealers_path, class: "pak-feature", style: "background: var(--pak-mist); border-color: var(--pak-line);" do %>
+      <h3>Dealership</h3>
+      <p class="pak-muted">Apply to become a PAK dealer.</p>
+    <% end %>
+    <%= link_to contact_path, class: "pak-feature", style: "background: var(--pak-mist); border-color: var(--pak-line);" do %>
+      <h3>Contact</h3>
+      <p class="pak-muted">Reach the Gujrat office and support team.</p>
+    <% end %>
+  </div>
+</section>

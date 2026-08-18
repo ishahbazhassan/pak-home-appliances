@@ -1,0 +1,26 @@
+<% content_for :title, "Become a Dealer | PAK Home Appliances" %>
+
+<section class="pak-page-hero">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Dealership</p>
+    <h1 class="pak-display" style="font-size: clamp(36px, 5vw, 56px);">Become a dealer.</h1>
+    <p class="pak-lede">Sign up for our dealership and become a partner of Pakistan’s leading fans and home appliances brand.</p>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap">
+    <%= form_with url: dealers_path, method: :post, local: true, class: "pak-form" do %>
+      <input type="text" name="name" placeholder="Full name" required>
+      <input type="text" name="business" placeholder="Business / shop name" required>
+      <input type="text" name="city" placeholder="City">
+      <input type="tel" name="phone" placeholder="Phone">
+      <input type="email" name="email" placeholder="Email">
+      <textarea name="message" placeholder="Tell us about your sales area"></textarea>
+      <button class="pak-btn pak-btn-primary" type="submit">Submit application</button>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="pak-lede"><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+</section>

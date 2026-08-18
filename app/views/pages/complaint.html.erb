@@ -1,0 +1,22 @@
+<% content_for :title, "Complaint | PAK Home Appliances" %>
+
+<section class="pak-page-hero">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Support</p>
+    <h1 class="pak-display" style="font-size: clamp(36px, 5vw, 56px);">Complaint form</h1>
+    <p class="pak-lede">Share the issue. We use this feedback to improve products and service.</p>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap">
+    <% if flash[:notice] %><p class="pak-lede"><%= flash[:notice] %></p><% end %>
+    <%= form_with url: complaint_path, method: :post, local: true, class: "pak-form" do %>
+      <input type="text" name="name" placeholder="Full name" required>
+      <input type="tel" name="phone" placeholder="Phone" required>
+      <input type="text" name="product" placeholder="Product name / model">
+      <textarea name="message" placeholder="Describe the issue"></textarea>
+      <button class="pak-btn pak-btn-primary" type="submit">Submit complaint</button>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+<header class="pak-header" data-pak-header>
+  <div class="pak-wrap pak-header-inner">
+    <%= link_to root_path, class: "pak-logo", aria: { label: "PAK Home Appliances" } do %>
+      <%= image_tag "/img/pak-logo.png", alt: "PAK Home Appliances" %>
+    <% end %>
+
+    <nav class="pak-nav" aria-label="Primary">
+      <button class="pak-nav-toggle" type="button" data-mega-toggle>Products</button>
+      <%= link_to "About Us", about_path, class: pak_nav_class(about_path) %>
+      <%= link_to "Innovation", innovation_path, class: pak_nav_class(innovation_path) %>
+      <%= link_to "Support", support_path, class: pak_nav_class(support_path) %>
+      <%= link_to "Become a Dealer", dealers_path, class: pak_nav_class(dealers_path) %>
+      <%= link_to "Contact", contact_path, class: pak_nav_class(contact_path) %>
+    </nav>
+
+    <div class="pak-tools">
+      <button class="pak-icon-btn" type="button" data-search-toggle aria-label="Search">
+        <i class="fas fa-search"></i>
+      </button>
+      <%= link_to cart_path, class: "pak-icon-btn", aria: { label: "Cart" } do %>
+        <i class="fas fa-shopping-bag"></i>
+      <% end %>
+      <button class="pak-menu-btn" type="button" data-menu-toggle aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="pak-mega">
+    <div class="pak-wrap pak-mega-grid">
+      <% Catalog.categories.each do |category| %>
+        <%= link_to shop_category_path(category.slug), class: "pak-mega-card" do %>
+          <i class="<%= category_icon(category.icon) %>"></i>
+          <h3><%= category.name %></h3>
+          <p><%= category.tagline %></p>
+          <span>Explore</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="pak-search">
+    <div class="pak-wrap">
+      <%= form_with url: shop_path, method: :get, local: true do %>
+        <input type="search" name="q" value="<%= params[:q] %>" placeholder="Search fans, coolers, washers, geysers" data-search-input>
+        <button class="pak-btn pak-btn-primary" type="submit">Search</button>
+      <% end %>
+    </div>
+  </div>
+</header>

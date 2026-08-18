@@ -1,0 +1,22 @@
+<% content_for :title, "Checkout | PAK Home Appliances" %>
+
+<section class="pak-page-hero">
+  <div class="pak-wrap">
+    <p class="pak-kicker">Checkout</p>
+    <h1 class="pak-display" style="font-size: clamp(36px, 5vw, 56px);">Complete your order.</h1>
+    <p class="pak-lede">Shipping charges vary depending on product and city. Full payment integration can be connected when the catalogue is live.</p>
+  </div>
+</section>
+
+<section class="pak-section">
+  <div class="pak-wrap">
+    <%= form_with url: checkout_path, method: :post, local: true, class: "pak-form" do %>
+      <input type="text" name="name" placeholder="Full name" required>
+      <input type="tel" name="phone" placeholder="Phone" required>
+      <input type="text" name="city" placeholder="City" required>
+      <textarea name="address" placeholder="Delivery address"></textarea>
+      <button class="pak-btn pak-btn-primary" type="submit">Place order request</button>
+    <% end %>
+    <% if flash[:notice] %><p class="pak-lede"><%= flash[:notice] %></p><% end %>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+<% content_for :title, [@category&.name, "Shop | PAK Home Appliances"].compact.join(" — ") %>
+
+<section class="pak-page-hero">
+  <div class="pak-wrap">
+    <div class="pak-crumbs">
+      <%= link_to "Home", root_path %>
+      <span>/</span>
+      <%= link_to "Products", shop_path %>
+      <% if @category %>
+        <span>/</span>
+        <span><%= @category.name %></span>
+      <% end %>
+    </div>
+    <p class="pak-kicker"><%= @category ? @category.name : "All products" %></p>
+    <h1 class="pak-display" style="font-size: clamp(36px, 5vw, 56px);"><%= @category&.tagline || "Explore PAK Home Appliances" %></h1>
+    <p class="pak-lede"><%= @category&.description || "Fans, washing machines, room air coolers and geysers — designed for better living." %></p>
+  </div>
+</section>
+
+<section class="pak-section" style="padding-top: 24px;">
+  <div class="pak-wrap">
+    <div class="pak-card-actions" style="margin-bottom: 28px;">
+      <%= link_to "All", shop_path, class: "pak-btn #{params[:category].blank? ? "pak-btn-primary" : "pak-btn-ghost"}" %>
+      <% Catalog.categories.each do |category| %>
+        <%= link_to category.name, shop_category_path(category.slug), class: "pak-btn #{params[:category] == category.slug ? "pak-btn-primary" : "pak-btn-ghost"}" %>
+      <% end %>
+    </div>
+
+    <% if @products.any? %>
+      <div class="pak-product-grid">
+        <% @products.each do |product| %>
+          <%= render "shared/product_card", product: product %>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="pak-lede">No products matched your search. Try another term or browse a category.</p>
+    <% end %>
+  </div>
+</section>

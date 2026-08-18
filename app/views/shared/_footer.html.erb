@@ -1,0 +1,45 @@
+<footer class="pak-footer">
+  <div class="pak-wrap pak-footer-grid">
+    <div>
+      <h3>PAK Home Appliances</h3>
+      <p>Reliable performance, modern technology and everyday comfort. Designed around real Pakistani living.</p>
+      <p>G.T. Road, Gujrat — Pakistan<br>+92-53 3726091-94<br>www.pakfansofficial.com</p>
+      <div class="pak-social">
+        <a href="https://www.pakfansofficial.com/" aria-label="Website"><i class="fas fa-globe"></i></a>
+        <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Products</h4>
+      <%= link_to "Fans", shop_category_path("fans") %>
+      <%= link_to "Washing Machines", shop_category_path("washing-machines") %>
+      <%= link_to "Room Air Coolers", shop_category_path("room-air-coolers") %>
+      <%= link_to "Geysers", shop_category_path("geysers") %>
+    </div>
+
+    <div>
+      <h4>Company</h4>
+      <%= link_to "About Us", about_path %>
+      <%= link_to "Vision & Mission", vision_path %>
+      <%= link_to "Achievements", achievements_path %>
+      <%= link_to "Media", media_path %>
+      <%= link_to "Careers", careers_path %>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <%= link_to "Product Inquiry", inquiry_path %>
+      <%= link_to "Complaint", complaint_path %>
+      <%= link_to "Dealership", dealers_path %>
+      <%= link_to "Contact", contact_path %>
+    </div>
+  </div>
+
+  <div class="pak-wrap pak-legal">
+    <span>© <%= Date.current.year %> PAK Home Appliances. All rights reserved.</span>
+    <span>Wahid Industries Limited</span>
+  </div>
+</footer>
