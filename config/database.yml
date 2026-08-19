@@ -88,8 +88,11 @@ production:
   primary: &primary_production
     <<: *default
     database: e_com_production
-    username: e_com
-    password: <%= ENV["E_COM_DATABASE_PASSWORD"] %>
+    host: <%= ENV["DB_HOST"] %>
+    port: <%= ENV.fetch("DB_PORT", 5432) %>
+    username: <%= ENV["DB_USERNAME"] %>
+    password: <%= ENV["DB_PASSWORD"] %>
+    sslmode: <%= ENV.fetch("DB_SSLMODE", "require") %>
   cache:
     <<: *primary_production
     database: e_com_production_cache
